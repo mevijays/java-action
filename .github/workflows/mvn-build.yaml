@@ -33,14 +33,14 @@ jobs:
           name: hello-world
           path: staging
 
-      - name: Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: false
+#      - name: Report
+#        uses: dorny/test-reporter@v1
+#        if: always()
+#        with:
+#          name: Maven Tests
+#          path: target/surefire-reports/*.xml
+#          reporter: java-junit
+#          fail-on-error: false
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
