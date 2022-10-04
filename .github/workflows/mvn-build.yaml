@@ -47,10 +47,11 @@ jobs:
         with:
           category: "/language:java"
 
-      - run: mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v3
-        with:
-          name: hello-world
-          path: staging
+#      - run: mkdir staging && cp target/*.jar staging
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: hello-world
+#          path: staging
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
+          jacoco-csv-file: target/site/jacoco/jacoco.csv
