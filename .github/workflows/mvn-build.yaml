@@ -15,11 +15,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: java
+
       - name: Set up JDK 1.8
         uses: actions/setup-java@v3
         with:
           java-version: '8'
           distribution: 'adopt'
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
       - name: Build
         run: mvn --batch-mode -DskipTests package
@@ -27,11 +35,11 @@ jobs:
       - name: Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
-      - run: mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v3
-        with:
-          name: hello-world
-          path: staging
+#      - run: mkdir staging && cp target/*.jar staging
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: hello-world
+#          path: staging
 
 #      - name: Report
 #        uses: dorny/test-reporter@v1
@@ -42,9 +50,5 @@ jobs:
 #          reporter: java-junit
 #          fail-on-error: false
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: java
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
