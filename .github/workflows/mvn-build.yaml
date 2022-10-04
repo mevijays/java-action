@@ -26,26 +26,26 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
-
       - name: Build
         run: mvn --batch-mode -DskipTests package
 
       - name: Unit-Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
-      - name: int-test
-        run: mvn verify -Psurefire
-
       - name: Report
         uses: dorny/test-reporter@v1
-        if: always()
+        if: success() || failure() 
         with:
           name: Maven Tests
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: false
+
+      - name: int-test
+        run: mvn verify -Psurefire
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
