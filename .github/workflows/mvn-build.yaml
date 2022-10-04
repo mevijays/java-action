@@ -52,9 +52,9 @@ jobs:
         with:
           jacoco-csv-file: "target/site/jacoco/jacoco.csv"
       - name: Log coverage percentage
-      run: |
-        echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
-        echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+        run: |
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
       - name: Commit the badge (if it changed)
         run: |
