@@ -1,0 +1,45 @@
+name: build mvn pipeline
+on:
+  workflow_dispatch:
+jobs:
+  mvn:
+    runs-on: ubuntu-latest
+    name: 'git checkout'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          config-file: ./.github/codeql-config.yml
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
+
+      - name: Build
+        run: mvn --batch-mode -DskipTests package
+
+      - name: Test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: staging
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
+
