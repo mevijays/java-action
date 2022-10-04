@@ -10,6 +10,10 @@ jobs:
       # only required for workflows in private repositories
       actions: read
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
     name: 'run build'
     steps:
       - name: Checkout
@@ -40,6 +44,8 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:java"
 
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
