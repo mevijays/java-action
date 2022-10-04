@@ -35,20 +35,20 @@ jobs:
       - name: Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
-#      - run: mkdir staging && cp target/*.jar staging
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: hello-world
-#          path: staging
-
-#      - name: Report
-#        uses: dorny/test-reporter@v1
-#        if: always()
-#        with:
-#          name: Maven Tests
-#          path: target/surefire-reports/*.xml
-#          reporter: java-junit
-#          fail-on-error: false
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: false
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hello-world
+          path: staging
