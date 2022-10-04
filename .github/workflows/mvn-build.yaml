@@ -32,8 +32,11 @@ jobs:
       - name: Build
         run: mvn --batch-mode -DskipTests package
 
-      - name: Test
+      - name: Unit-Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+
+      - name: int-test
+        run: mvn verify -Psurefire
 
       - name: Report
         uses: dorny/test-reporter@v1
