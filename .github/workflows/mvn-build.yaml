@@ -37,7 +37,7 @@ jobs:
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
       - name: int-test
-        run: mvn verify -Psurefire
+        run: mvn verify 
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
