@@ -2,7 +2,7 @@
 
 ![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/codeql-check.yaml/badge.svg)
 
-https://github.com/mevijays/java-action/actions/workflows/codeql-check.yaml/badge.svg
+![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/mvn-build.yaml/badge.svg)
 
 A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
