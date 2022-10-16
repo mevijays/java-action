@@ -1,5 +1,8 @@
 # A Java/Maven/JUnit HelloWorld example
 
+![example branch parameter](https://github.com/mevijays/java-action/blob/main/.github/workflows/codeql-check.yaml/badge.svg?branch=main)
+
+
 A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
 This example demonstrates:
