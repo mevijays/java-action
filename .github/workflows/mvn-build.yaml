@@ -32,11 +32,11 @@ jobs:
 #      - name: Build
 #        run: mvn --batch-mode -DskipTests package
 
-      - name: Unit-Test
-        run: mvn test
+#      - name: Unit-Test
+#        run: mvn test
 
-      - name: int-test
-        run: mvn verify 
+#      - name: int-test
+#        run: mvn verify 
 #      - name: sonar-scan
 #        uses: kitabisa/sonarqube-action@master
 #        with:
