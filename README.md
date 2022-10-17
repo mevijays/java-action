@@ -4,7 +4,7 @@
 
 ![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/mvn-build.yaml/badge.svg)
 
-[![Quality Gate](https://sonarqube.k8s.mevijay.dev/api/project_badges/quality_gate?project=java-maven-junit-helloworld&metric=coverage&branch=main)]([https://sonarqube.k8s.mevijay.dev/component_measures/metric/coverage/list?id=java-maven-junit-helloworld](https://sonarqube.k8s.mevijay.dev/component_measures?id=my-custom-project&metric=coverage&view=list))
+ [![Quality Gate](https://sonarqube.k8s.mevijay.dev/api/project_badges/quality_gate?project=java-maven-junit-helloworld&metric=coverage&branch=main)](https://sonarqube.k8s.mevijay.dev/component_measures?id=my-custom-project&metric=coverage&view=list)
 
 A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
