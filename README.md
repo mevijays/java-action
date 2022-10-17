@@ -2,7 +2,7 @@
 
 ![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/codeql-check.yaml/badge.svg)
 
-![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/mvn-build.yaml/badge.svg)
+![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/mvn-build.yaml/badge.svg)      ![GitHub top language](https://img.shields.io/github/languages/top/mevijays/java-action)
 
 [![Quality Gate Status](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=alert_status&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)
 [![Coverage](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=coverage&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)
