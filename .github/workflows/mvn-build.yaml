@@ -1,6 +1,9 @@
 name: build mvn pipeline
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - 'main'
 jobs:
   mvn:
     runs-on: ubuntu-latest
