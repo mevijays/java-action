@@ -7,6 +7,16 @@ on:
 jobs:
   build:
     name: Build
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,6 +26,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Build
+        run: mvn --batch-mode -DskipTests package
+
+      - name: Unit-Test
+        run: mvn test
       - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
@@ -34,3 +49,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=my-custom-project
+      
+      - run: mkdir staging && cp target/*.jar staging
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hello-world
+          path: staging
