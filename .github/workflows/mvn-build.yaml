@@ -50,11 +50,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify  -Dsonar.projectKey=my-custom-project
+        run: mvn -B verify jacoco:report -Dsonar.projectKey=my-custom-project
         #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=my-custom-project
       
-      - run: mkdir staging && cp target/*.jar staging
-      - run: ls -l target/
+      - run: |
+          mkdir staging && cp target/*.jar staging
+          ls -l target/site/jacoco
+          tree target/
       
       - uses: actions/upload-artifact@v3
         with:
