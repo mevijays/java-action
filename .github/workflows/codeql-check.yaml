@@ -1,8 +1,6 @@
 name: "Code scanning - action"
 
-on:
-  schedule:
-    - cron: '0 6 * * 3'
+on: workflow_dispatch
 
 jobs:
   CodeQL-Build:
