@@ -54,6 +54,7 @@ jobs:
         #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=my-custom-project
       
       - run: mkdir staging && cp target/*.jar staging
+      - run: ls -l target/
       
       - uses: actions/upload-artifact@v3
         with:
