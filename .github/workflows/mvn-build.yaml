@@ -29,10 +29,7 @@ jobs:
         with:
           maven-version: 3.8.2
       - name: Build
-        run: mvn --batch-mode -DskipTests package
-
-      - name: Unit-Test
-        run: mvn test
+        run: mvn clean test package --batch-mode -DskipTests 
       - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
