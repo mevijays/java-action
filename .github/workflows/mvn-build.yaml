@@ -10,11 +10,8 @@ jobs:
       # only required for workflows in private repositories
       actions: read
       contents: read
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'java' ]
-    runs-on: self-hosted
+
+    runs-on: mylab-vm
     steps:
       - uses: actions/checkout@v2
         with:
@@ -29,27 +26,8 @@ jobs:
         with:
           maven-version: 3.8.2
       - name: Build
-        run: mvn clean test package --batch-mode -DskipTests 
-      - name: Cache SonarQube packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Maven packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify jacoco:report -Dsonar.projectKey=my-custom-project
-        #run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=my-custom-project
-      
+        run: mvn clean test package verify -B jacoco:report 
+   
       - run: |
           mkdir staging && cp target/*.jar staging
           ls -l target/site/jacoco
