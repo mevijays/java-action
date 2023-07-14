@@ -4,19 +4,7 @@
 
 ![example branch parameter](https://github.com/mevijays/java-action/actions/workflows/mvn-build.yaml/badge.svg)      ![GitHub top language](https://img.shields.io/github/languages/top/mevijays/java-action)
 
-[![Quality Gate Status](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=alert_status&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)
-[![Coverage](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=coverage&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)
-[![Code Smells](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=code_smells&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)
-[![Vulnerabilities](https://sonarqube.k8s.mevijay.dev/api/project_badges/measure?project=my-custom-project&metric=vulnerabilities&token=72471a9c2ae97875761c86a7b371e3edd0d2384c)](https://sonarqube.k8s.mevijay.dev/dashboard?id=my-custom-project)    
-A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
-This example demonstrates:
-
-* A simple Java 1111111111111111111111 application with tests
-* Unit tests written with [JUnit 5](https://junit.org/junit5/)
-* Integration tests written with [JUnit 5](https://junit.org/junit5/)
-* Code coverage reports via [JaCoCo](https://www.jacoco.org/jacoco/)
-* A Maven build that puts it all together
 
 ## Running the tests
 
@@ -34,4 +22,4 @@ This example follows the following basic conventions:
 | **resides in:** | `src/test/java/*Test.java` | `src/test/java/*IT.java` |
 | **executes in Maven phase:** | test | verify |
 | **handled by Maven plugin:** | [surefire](http://maven.apache.org/surefire/maven-surefire-plugin/) | [failsafe](http://maven.apache.org/surefire/maven-failsafe-plugin/) |
-ghh
+
