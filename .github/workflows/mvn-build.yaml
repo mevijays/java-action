@@ -26,7 +26,7 @@ jobs:
         with:
           maven-version: 3.8.2
       - name: Build
-        run: mvn clean verify -Pjacoco 
+        run: mvn clean test package verify -Pjacoco
    
       - run: |
           mkdir staging && cp target/*.jar staging
