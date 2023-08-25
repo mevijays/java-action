@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir -p ~/.m2
           echo "<settings><servers><server><id>gitlab</id><username>vijay</username><password>${GITLAB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          mvn clean test package verify deploy -Pjacoco
+          mvn clean test package verify -Pjacoco
    
       - run: |
           mkdir staging && cp target/*.jar staging
