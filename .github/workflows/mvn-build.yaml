@@ -11,7 +11,7 @@ jobs:
       actions: read
       contents: read
 
-    runs-on: mylab-vm
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -26,7 +26,7 @@ jobs:
         with:
           maven-version: 3.8.2
       - name: Build
-        run: mvn clean test package verify -B jacoco:report 
+        run: mvn clean test verify package -Pjacoco 
    
       - run: |
           mkdir staging && cp target/*.jar staging
