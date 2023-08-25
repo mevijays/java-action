@@ -13,7 +13,7 @@
      <repository>
        <id>gitlab</id>
        <name>GitLab OWNER Apache Maven Packages</name>
-       <url>https://git.mevijay.dev/vijay/java-action</url>
+       <url>https://reg.mevijay.dev/vijay/java-action</url>
      </repository>
   </distributionManagement>
   <groupId>com.examples</groupId>
