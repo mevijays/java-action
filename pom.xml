@@ -9,6 +9,13 @@
     <version>2.6.7</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
+  <distributionManagement>
+     <repository>
+       <id>gitlab</id>
+       <name>GitLab OWNER Apache Maven Packages</name>
+       <url>https://git.mevijay.dev/vijay/java-action</url>
+     </repository>
+  </distributionManagement>
   <groupId>com.examples</groupId>
   <artifactId>demo-spring-testing</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -16,7 +23,7 @@
   <description>Demo project for Spring Boot Testing</description>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
 
     <skip.unit-tests>false</skip.unit-tests>
     <skip.integration-tests>false</skip.integration-tests>
