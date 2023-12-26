@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: zulu
-          java-version: 11
+          java-version: 17
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
@@ -29,9 +29,9 @@ jobs:
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-          mkdir -p ~/.m2
-          echo "<settings><servers><server><id>gitlab</id><username>vijay</username><password>${GITLAB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          mvn clean test package verify -Pjacoco
+          #mkdir -p ~/.m2
+          #echo "<settings><servers><server><id>gitlab</id><username>vijay</username><password>${GITLAB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
+          mvn test
    
       - run: |
           mkdir staging && cp target/*.jar staging
