@@ -35,11 +35,11 @@ jobs:
           pwd && ls -l
           mvn -B package deploy --file pom.xml
       
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: hello-world
           path: staging
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: index.html
           path: target/site/jacoco
