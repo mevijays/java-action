@@ -22,9 +22,7 @@ jobs:
           distribution: zulu
           java-version: 17
           cache: 'maven'
-          server-id: gitea
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
+
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
