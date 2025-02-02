@@ -11,7 +11,7 @@ jobs:
       actions: read
       contents: read
 
-    runs-on: mylab-vm
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
